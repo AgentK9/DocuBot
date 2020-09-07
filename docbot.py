@@ -73,6 +73,7 @@ async def on_message(message):
         url = "https://docs.google.com/document/d/" + notes_id + "/edit"
         await message.channel.send("Technical Entry document successfully created here: " + url)
         open(messageLogPath, 'w').close()
+        await message.channel.send("Cleared message log.")
     elif message.content.startswith("$clear"):
         # clear log last X messages (confirm if X is 0, clear all)
         try:
