@@ -8,7 +8,7 @@ from google.auth.transport.requests import Request
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/documents']
 
-DOCUMENT_ID = "17Qf3-tWqybtMdt7G8Qj3sP7HPD8vqcyTqmj7-_CpB4Y"
+DOCUMENT_ID = ""
 
 
 def get_service():
@@ -53,7 +53,6 @@ def append_text(docid: str, text: str, service=None):
         }
     ]
     body = service.documents().batchUpdate(documentId=docid, body={"requests": requests}).execute()
-    print(body)
 
 
 if __name__ == '__main__':

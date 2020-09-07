@@ -7,7 +7,7 @@ from google.auth.transport.requests import Request
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/drive']
-template = "1kjVTREYQKYW9wagG6v8g-tSdHYDLle5_6MfI1_6uOac"
+template = ""
 
 
 def get_service():
@@ -56,13 +56,6 @@ def copy(docid: str, name: str = "", folderid: str = "", service=None):
                                fields="id, parents").execute()
 
     return id
-
-
-def append_text(docid: str, text: str, service=None):
-    if not service:
-        service = get_service()
-    body = service.files().get_media(fileId=docid).execute()
-    print(body)
 
 
 if __name__ == '__main__':

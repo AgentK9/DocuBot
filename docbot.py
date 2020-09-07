@@ -105,6 +105,6 @@ async def on_message(message):
             }
 
             mlog.write(dumps(messageObj) + '\n')
-
-with open("creds/discordsecret.key") as keyfile:
-    client.run(config["client_key"])
+if __name__ == "__main__":
+    with open("creds/discordsecret.key") as keyfile:
+        client.run(config["client_key"])
