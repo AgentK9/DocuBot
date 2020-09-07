@@ -72,6 +72,7 @@ async def on_message(message):
         notes_id = copy(config["meeting_notes_template_id"], datetime.now().strftime("%Y/%m/%d, %a"))
         url = "https://docs.google.com/document/d/" + notes_id + "/edit"
         await message.channel.send("Technical Entry document successfully created here: " + url)
+        open(messageLogPath, 'w').close()
     elif message.content.startswith("$clear"):
         # clear log last X messages (confirm if X is 0, clear all)
         try:
@@ -105,4 +106,4 @@ async def on_message(message):
             mlog.write(dumps(messageObj) + '\n')
 
 with open("creds/discordsecret.key") as keyfile:
-    client.run(config["client_id"])
+    client.run(config["client_key"])
